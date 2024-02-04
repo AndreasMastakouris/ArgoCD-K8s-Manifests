@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend  #-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: andreasmastakouris/project-frontend:vr1
+        ports:
+        - containerPort: 8501
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend  #-service
+spec:
+  selector:
+    app: frontend
+  type: NodePort  # LoadBalancer 
+  ports:
+    - protocol: TCP
+      port: 80      # for cloud change it to 80, or run the app in <cloudip:8501>
+      targetPort: 8501
+      # nodePort: 30000
