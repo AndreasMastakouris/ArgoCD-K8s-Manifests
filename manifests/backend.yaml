@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: andreasmastakouris/project-backend:latest
+        image: andreasmastakouris/project-backend:vr2
         ports:
         - containerPort: 8000
 ---
