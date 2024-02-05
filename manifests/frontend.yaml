@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: andreasmastakouris/project-frontend:vr3
+        image: andreasmastakouris/project-frontend:vr4
         ports:
         - containerPort: 8501
 ---
